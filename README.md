@@ -82,3 +82,18 @@ loading.hide()
 console.log(loading.value) // false
 ```
 
+
+### 开发
+- 启动库
+```shell
+$ yarn install
+$ npm link
+$ npm run start
+```
+- 启动demo
+```shell
+$ cd example
+$ yarn install
+$ npm link @followwinter/state-delegate
+$ npm start
+```
