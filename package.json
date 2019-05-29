@@ -1,5 +1,5 @@
 {
-  "name": "state-delegate",
+  "name": "@followwinter/state-delegate",
   "version": "1.0.0",
   "main": "lib/index.js",
   "repository": "https://github.com/followWinter/state-delegate.git",

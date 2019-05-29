@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import StateDelegate from 'state-delegate'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+    componentDidMount() {
+        const {loading} = this.props
+        loading.show()
+        setTimeout(() => {
+            loading.hide()
+        }, 3000)
+    }
+
+    render() {
+        const {loading} = this.props
+        return <div>{
+            loading.value ? '加载中' : '加载完成'
+        }</div>
+    }
 }
 
-export default App;
+export default StateDelegate({
+    loading: {
+        show: true,
+        hide: false
+    }
+})(App);
