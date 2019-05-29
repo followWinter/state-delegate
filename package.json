@@ -2,6 +2,10 @@
   "name": "@followwinter/state-delegate",
   "version": "1.0.0",
   "main": "lib/index.js",
+  "scripts": {
+    "dev": "webpack -w",
+    "publish": "webpack && git add . && git cz && npm run patch && npm publish --access=publish && git push origin master"
+  },
   "repository": "https://github.com/followWinter/state-delegate.git",
   "author": "lyxxxx <lyxxxx@yeah.net>",
   "license": "MIT",
