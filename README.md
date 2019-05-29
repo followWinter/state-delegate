@@ -18,7 +18,28 @@ import StateDelegate from 'state-delegate'
 ```
 - 使用
 ```javascript
-// 声明变量及其对应的 action
+import React from 'react';
+import StateDelegate from 'state-delegate'
+
+class App extends React.Component {
+    componentDidMount() {
+        // 改变状态
+        const {loading} = this.props
+        loading.show()
+        setTimeout(() => {
+            loading.hide()
+        }, 3000)
+    }
+
+    render() {
+        绑定状态
+        const {loading} = this.props
+        return <div>{
+            loading.value ? '加载中' : '加载完成'
+        }</div>
+    }
+}
+// 声明状态
 export default StateDelegate({
     loading: {
         show: true,
@@ -26,19 +47,6 @@ export default StateDelegate({
     }
 })(App);
 
-// render
-render() {
-    const {loading} = this.props
-    return <div>{
-        loading.value ? '加载中' : '加载完成'
-    }</div>
-}
-// 状态改变
-const {loading} = this.props
-loading.show()
-setTimeout(() => {
-    loading.hide()
-}, 3000)        
 ```
 ### API
 ```javascript
